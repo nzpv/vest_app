@@ -1,0 +1,46 @@
+{
+  "name": "vest",
+  "version": "1.0.0",
+  "description": "Official app for VestSocial.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "author": "argrim",
+  "license": "MIT",
+  "devDependencies": {
+    "electron-builder": "^24.6.0",
+    "electron": "^26.0.0"
+  },
+  "build": {
+    "appId": "VestSocial",
+    "productName": "vest",
+    "directories": {
+      "output": "dist"
+    },
+    "npmRebuild": false,
+    "forceCodeSigning": false,
+
+    "files": [
+      "main.js",
+      "node_modules/**/*"
+    ],
+    "extraResources": [
+      "assets/**/*"
+    ],
+    "win": {
+      "icon": "build/icons/logo.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "ia32"]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
